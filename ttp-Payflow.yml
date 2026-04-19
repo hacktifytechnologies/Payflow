@@ -1,0 +1,35 @@
+- name: 'HACKTIFY: Setup PayFlow Gateway Lab'
+  id: 4971156c-7070-f6c4-c24e-82ca9d912c0c
+  description: >-
+    A SaaS payment gateway application is running on port 8092. The platform
+    handles user transactions and provides an admin panel for reviewing
+    orders. Register or log in as a normal user and explore how the
+    application processes payments — pay close attention to the values
+    submitted during a transaction and whether the server validates them
+    properly. Your objective is to gain administrative access and approve a
+    flagged transaction.
+  tactic: defense-evasion
+  technique_id: T1550.001
+  technique_name: 'Use Alternate Authentication Material: Application Access Token'
+  singleton: true
+  repeatable: false
+  delete_payload: false
+  executors:
+    - name: sh
+      platform: linux
+      command: |
+        git clone https://github.com/hacktifytechnologies/Payflow /opt/hacktify/Payflow
+        cd /opt/hacktify/Payflow
+        chmod +x setup.sh
+        bash setup.sh -a
+      code: null
+      language: null
+      build_target: null
+      payloads: []
+      uploads: []
+      timeout: 300
+      parsers: []
+      cleanup: []
+      variations: []
+      additional_info: {}
+  requirements: []
